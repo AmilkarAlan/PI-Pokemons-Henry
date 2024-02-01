@@ -1,0 +1,13 @@
+.detail_main {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "pokeView pokeDetail";
+    overflow: hidden;
+    background: rgb(249, 249, 239);
+    background: rgb(249,249,239);
+    background: linear-gradient(120deg, rgba(249,249,239,1) 10%, rgba(253,29,29,1) 10%, rgba(253,29,29,1) 20%, rgba(252,92,56,1) 20%, rgba(252,92,56,1) 80%, rgba(253,29,29,1) 80%, rgba(253,29,29,1) 90%, rgba(249,249,239,1) 90%);
+}

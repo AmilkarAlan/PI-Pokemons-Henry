@@ -1,0 +1,22 @@
+.landing_main{
+    height: 100%;
+    width: 100%;
+    background-image: url("https://wallpaper.dog/large/10988085.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.init_button{
+    height: fit-content;
+background-color: rgba(128, 128, 128, 0.459);
+border-radius: 8px;
+}
+
+.init_link{
+    color: wheat;
+    font-size: 120px;
+}

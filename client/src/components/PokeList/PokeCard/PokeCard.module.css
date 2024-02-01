@@ -1,0 +1,73 @@
+.card_container {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+/* .img_container {
+  display: flex;
+  border-radius: 50%;
+  background-color: azure;
+} */
+
+.mini_image {
+  width: 40px;
+  height: 40px;
+  object-fit: scale-down;
+
+}
+
+.poke_icon {
+  width: 20px;
+  height: 20px;
+}
+
+.card_left_side{
+  background-color: transparent;
+  height: 100%;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.card_rigth_side{
+  background-color: transparent;
+  height: 100%;
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 36px;
+  text-align: left;
+  color: white;
+  border-radius: 8px;
+}
+
+.icon_container{
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+p{
+  width: max-content;
+  margin-left: 8px;
+}
+
+.icon_pokeSvg{
+  height: 100%;
+  width: 100%;
+}
+
+
+.card_container:hover .card_left_side, .active_left{
+  background-color: orange;
+}
+.card_container:hover .card_rigth_side, .active{
+  background-color: black;
+}

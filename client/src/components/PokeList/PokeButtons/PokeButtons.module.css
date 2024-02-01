@@ -1,0 +1,16 @@
+button{
+    height: 20px;
+    width: 70px;
+    border: none;
+    border-radius: 16px;
+    color: beige;
+    background-color: black;
+}
+
+.buttons_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+}

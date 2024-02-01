@@ -1,0 +1,30 @@
+.detail_container {
+    height: 100%;
+    width: 100%;
+    grid-area: pokeDetail;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+
+}
+
+.card_container{
+    display: flex;
+}
+
+.detail_wrapper{
+    width: max-content;
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+}

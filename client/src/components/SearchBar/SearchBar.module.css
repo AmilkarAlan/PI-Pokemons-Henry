@@ -1,0 +1,12 @@
+.searchbar_container {
+    width: 250px;
+    height: 30px;
+    position: absolute;
+    top: 70px;
+    left: 250px;
+    background-color: rgba(128, 128, 128, 0.247);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
