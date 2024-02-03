@@ -1,29 +1,58 @@
 const axios = require("axios");
 
-module.exports = async (results) => {
-    try {
-
-        const pokeData = await Promise.all(
-            results.map(async (pk) => {
-                let {data:pokemon} = await axios.get(pk.url);
+module.exports = (pk) => {
+    if (Array.isArray(pk)) {
+        try {
+            pk.map((pk) => {
                 return {
-                    id: pokemon.id,
-                    name: pokemon.name,
-                    base_hp: pokemon.stats[ 0 ].base_stat,
-                    base_attack: pokemon.stats[ 1 ].base_stat,
-                    base_defense: pokemon.stats[ 2 ].base_stat,
-                    base_speed: pokemon.stats[ 5 ].base_stat,
-                    height: pokemon.height,
-                    weight: pokemon.weight,
-                    image: pokemon.sprites.front_default,
-                    imageAnimated: pokemon.sprites.other.showdown.front_default,
-                    type: pokemon.types.map((tipo) => {return {name: tipo.type.name}}),
-                };
+                    id: pk.id,
+                    name: pk.name,
+                    height: pk.height,
+                    weight: pk.weight,
+                    image: pk.sprites.front_default ?? "https://henryjimenezp.github.io/P4-Pokedex/img/pokemon.png",
+                    gifImage: pk.sprites.other.showdown.front_default ?? "https://henryjimenezp.github.io/P4-Pokedex/img/pokemon.png",
+                    otherImage: pk.sprites.other.dream_world.front_default ?? "https://henryjimenezp.github.io/P4-Pokedex/img/pokemon.png",
+                    stats: pk.stats.map((stat) => {
+                        return {
+                            name: stat.stat.name,
+                            base_stat: stat.base_stat
+                        }
+                    }),
+                    types: pk.types.map((type) => {
+                        return {
+                            name: type.type.name
+                        }
+                    })
+                }
             })
-        );
-        return pokeData
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+    try {
+        const pokemon = {
+            id: pk.id,
+            name: pk.name,
+            height: pk.height,
+            weight: pk.weight,
+            image: pk.sprites.front_default ?? "https://henryjimenezp.github.io/P4-Pokedex/img/pokemon.png",
+            gifImage: pk.sprites.other.showdown.front_default ?? "https://henryjimenezp.github.io/P4-Pokedex/img/pokemon.png",
+            otherImage: pk.sprites.other.dream_world.front_default ?? "https://henryjimenezp.github.io/P4-Pokedex/img/pokemon.png",
+            stats: pk.stats.map((stat) => {
+                return {
+                    name: stat.stat.name,
+                    base_stat: stat.base_stat
+                }
+            }),
+            types: pk.types.map((type) => {
+                return {
+                    name: type.type.name
+                }
+            })
+        }
+        return pokemon
     } catch (error) {
-        throw error
+        throw new Error(error)
     }
 }
 
