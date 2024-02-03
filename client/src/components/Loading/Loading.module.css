@@ -1,0 +1,24 @@
+.loading_container{
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokeIcon_loading {
+    height: 10px;
+    align-self: flex-end;
+}
+
+.text_loading_container{
+    display: flex;
+    gap:8px;
+}

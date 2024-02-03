@@ -26,8 +26,10 @@
   },
   "devDependencies": {
     "chai": "^5.0.3",
+    "jsdom": "^24.0.0",
     "mocha": "^10.2.0",
     "nodemon": "^3.0.3",
+    "puppeteer": "^21.11.0",
     "supertest": "^6.3.4",
     "supertest-session": "^5.0.1"
   }

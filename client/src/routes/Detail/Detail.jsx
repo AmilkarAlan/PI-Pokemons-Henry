@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom';
 import PokeView from '../../components/PokeView/PokeView';
 import PokeDetail from '../../components/PokeDetail/PokeDetail';
+import Loading from "../../components/Loading/Loading"
 
 const Detail = () => {
     const [ detail, setDetail ] = useState({});
@@ -15,7 +16,7 @@ const Detail = () => {
     const { id } = useParams();
     useEffect(() => {
         setDetail(pokemons[ id - 1 ])
-        console.log(pokemons[1024]);
+        console.log(pokemons[ 1024 ]);
 
         if (detail) {
             setPokeView({ img: detail.imageAnimated, name: name })
@@ -23,7 +24,16 @@ const Detail = () => {
     }, [ detail, pokemons ])
     return (
         <div className={ style.detail_main }>
-            { detail ? (<><PokeView pokeInfo={ pokeView } /> <PokeDetail pokeInfo={ detail } /></>) : <h1>...Cargando</h1> }
+            { detail
+                ?
+                (
+                    <>
+                        <PokeView pokeInfo={ pokeView } />
+                        <PokeDetail pokeInfo={ detail } />
+                    </>
+                )
+                :
+                <Loading /> }
         </div>
     )
 }

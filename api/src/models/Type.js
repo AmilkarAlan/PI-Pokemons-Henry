@@ -8,8 +8,24 @@ module.exports = (sequelize) => {
         allowNull: false,
         primaryKey: true,
     },
-    name:{
+    es_name:{
         type: DataTypes.STRING,
         allowNull:false,
+    },
+    en_name:{
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    image:{
+      type: DataTypes.TEXT,
+      allowNull:true,
+    },
+    icon:{
+      type:DataTypes.TEXT,
+      allowNull:true,
+    },
+    pokemon:{
+      type: DataTypes.JSONB,
+      allowNull: true
     },
   },{timestamps: false})}

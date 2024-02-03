@@ -9,9 +9,11 @@ import searchIcon from "../../assets/searchIcon.svg"
 import { searchPokemon } from '../../redux/action'
 import SearchBar from '../../components/SearchBar/SearchBar'
 import PokeCard from '../../components/PokeList/PokeCard/PokeCard'
+import Loading from "../../components/Loading/Loading"
+import axios from 'axios'
 
 
-const Home = ({loading}) => {
+const Home = ({ loading }) => {
 
   const pokemons = useSelector((state) => state.pokemons);
   const results = useSelector((state) => state.pokeDetail)
@@ -34,10 +36,10 @@ const Home = ({loading}) => {
     setSearchResults(true)
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     seleccionarPoke(results.id, results.name, results.imageAnimated)
     setSearch("")
-  },[results])
+  }, [ results ])
 
   const seleccionarPoke = (id, name, img) => {
     setSeleccionada(id);
@@ -53,12 +55,18 @@ const Home = ({loading}) => {
     }
   }
 
-  if (loading){
+const handleFetch = async () => {
+const url = "https://pokemon.fandom.com/es/wiki/Api"
+const res = await axios.get(url)
+console.log(res);
+}
+
+  if (loading) {
     return (
       <div className={ style.home_grid }>
-         <h1>
-          Cargando...
-         </h1>
+
+        <Loading />
+
       </div>
     )
   }
@@ -97,7 +105,7 @@ const Home = ({loading}) => {
                 seleccionada={ seleccionada }
               /> </div>)
             : false
-  }
+          }
 
 
 
@@ -112,7 +120,7 @@ const Home = ({loading}) => {
         pokeSelection={ setPokeView }
         onSelect={ seleccionarPoke }
         seleccionada={ seleccionada } />
-      {/* <Outlet/> */ }
+        <button onClick={()=>handleFetch()}>fetch</button>
     </div>
   )
 }
