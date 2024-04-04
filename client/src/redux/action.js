@@ -22,7 +22,7 @@ return async (dispatch) =>{
 export const searchPokemon = (search) =>{
     return async (dispatch) => {
         try {
-            const {data} = await axios.get("http://localhost:3001/pokedex/pokemons/", {params:{name:search}})
+            const {data} = await axios.get("http://localhost:3001/pokedex/pokemons/search", {params:{name:search}})
             dispatch({
                 type: actionsTypes.SEARCH_POKEMONS_START,
                 payload: data
@@ -36,7 +36,7 @@ export const searchPokemon = (search) =>{
 export const detailPokemon = (id) =>{
     return async (dispatch) => {
         try {
-            const {data} = await axios.get("http://localhost:3001/pokedex/pokemons/", {params:{id:id}})
+            const {data} = await axios.get("http://localhost:3001/pokedex/pokemons/search", {params:{id:id}})
             dispatch({
                 type: actionsTypes.SEARCH_POKEMONS_START,
                 payload: data

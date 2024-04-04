@@ -28,7 +28,8 @@ module.exports = async (results) => {
             await Type.findOrCreate({
                 where:
                     { id, es_name, },
-                defaults: { en_name, image, icon, pokemon }
+                defaults:
+                    { en_name, image, icon, pokemon }
             })
 
             return {

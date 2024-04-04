@@ -20,7 +20,7 @@ const Home = ({ loading }) => {
   const dispatch = useDispatch();
 
   const [ pokeView, setPokeView ] = useState({
-    img: "", name: "", id: ""
+    img: "", specie: "", id: ""
   })
   const [ searchResults, setSearchResults ] = useState(false)
   const [ seleccionada, setSeleccionada ] = useState("");
@@ -37,13 +37,14 @@ const Home = ({ loading }) => {
   }
 
   useEffect(() => {
-    seleccionarPoke(results.id, results.name, results.imageAnimated)
+    console.log(results);
+    seleccionarPoke(results.id, results.specie, results.gifImage)
     setSearch("")
   }, [ results ])
 
-  const seleccionarPoke = (id, name, img) => {
+  const seleccionarPoke = (id, specie, img) => {
     setSeleccionada(id);
-    setPokeView({ img, name, id })
+    setPokeView({ img, specie, id })
   }
 
   const abrirBusqueda = () => {
@@ -55,11 +56,6 @@ const Home = ({ loading }) => {
     }
   }
 
-const handleFetch = async () => {
-const url = "https://pokemon.fandom.com/es/wiki/Api"
-const res = await axios.get(url)
-console.log(res);
-}
 
   if (loading) {
     return (
@@ -99,7 +95,7 @@ console.log(res);
             ?
             (<div className={ style.results_container }>
               <PokeCard
-                name={ results.name }
+                specie={ results.specie }
                 id={ results.id }
                 image={ results.image }
                 seleccionada={ seleccionada }
@@ -120,7 +116,6 @@ console.log(res);
         pokeSelection={ setPokeView }
         onSelect={ seleccionarPoke }
         seleccionada={ seleccionada } />
-        <button onClick={()=>handleFetch()}>fetch</button>
     </div>
   )
 }

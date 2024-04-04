@@ -10,7 +10,7 @@ const PokeView = ({ pokeInfo }) => {
                 { !id ? <Link className={style.link}to={ `/detail/${pokeInfo.id}` }>Ver detalles</Link> : <Link to={ "/pokemons" }>Regresar</Link> }
             </div>
             <div className={ style.image_container }>
-                <img src={ pokeInfo.img } alt={ pokeInfo.name } />
+                <img src={ pokeInfo.img } alt={ pokeInfo.specie } />
             </div>
         </div>
     )

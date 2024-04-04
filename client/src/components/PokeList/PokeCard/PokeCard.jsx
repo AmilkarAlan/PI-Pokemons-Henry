@@ -3,7 +3,7 @@ import style from './PokeCard.module.css'
 import pokeIcon from "../../../assets/pokebolaBlack.svg"
 import pokeIconW from "../../../assets/pokebolaWhite.svg"
 
-const PokeCard = ({ name, id, image, select, animatedImg, onSelect, seleccionada  }) => {
+const PokeCard = ({ specie, id, image, select, animatedImg, onSelect, seleccionada  }) => {
     return (
         <li className={ style.card_container } onClick={onSelect}>
 
@@ -15,7 +15,7 @@ const PokeCard = ({ name, id, image, select, animatedImg, onSelect, seleccionada
 
             <div className={ seleccionada ? (style.active + " " + style.card_rigth_side): style.card_rigth_side}>
 
-                <p>{ name }</p>
+                <p>{ specie }</p>
                 <div className={ style.icon_container }>
                      {seleccionada ? <img className={ style.poke_icon } src={ pokeIconW } alt="icon" /> : <img className={ style.poke_icon } src={ pokeIcon } alt="icon" /> }
 

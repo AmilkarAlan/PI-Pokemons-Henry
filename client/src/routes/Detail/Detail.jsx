@@ -10,16 +10,14 @@ import Loading from "../../components/Loading/Loading"
 const Detail = () => {
     const [ detail, setDetail ] = useState({});
     const [ pokeView, setPokeView ] = useState({
-        img: "", name: ""
+        img: "", specie: ""
     });
     const pokemons = useSelector(state => state.pokemons);
     const { id } = useParams();
     useEffect(() => {
         setDetail(pokemons[ id - 1 ])
-        console.log(pokemons[ 1024 ]);
-
         if (detail) {
-            setPokeView({ img: detail.imageAnimated, name: name })
+            setPokeView({ img: detail.gifImage, specie: detail.specie })
         }
     }, [ detail, pokemons ])
     return (

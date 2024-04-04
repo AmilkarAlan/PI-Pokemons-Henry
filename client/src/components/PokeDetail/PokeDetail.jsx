@@ -5,11 +5,11 @@ const pokeDetail = ({ pokeInfo }) => {
 
     return (
         <>
-            { pokeInfo.name ? (
+            { pokeInfo.specie ? (
                 <div className={ style.detail_container }>
                     <div className={ style.card_container }>
                         <PokeCard
-                            name={ pokeInfo.name.charAt(0).toUpperCase() + pokeInfo.name.slice(1) }
+                            specie={ pokeInfo.specie.charAt(0).toUpperCase() + pokeInfo.specie.slice(1) }
                             id={ pokeInfo.id }
                             image={ pokeInfo.image }
                             seleccionada={ pokeDetail } />
@@ -18,14 +18,18 @@ const pokeDetail = ({ pokeInfo }) => {
                         <p>Peso: { pokeInfo.weight } Kg</p>
                         { pokeInfo.height > 9 ? <p>Altura: { pokeInfo.height } M</p> : <p>Altura: 0,{ pokeInfo.height } M</p> }
                         <div className={ style.stats }>
-                            <p>Hp base: { pokeInfo.base_hp }</p>
-                            <p>Ataque base: { pokeInfo.base_attack }</p>
-                            <p>Defensa base: { pokeInfo.base_defense }</p>
-                            <p>Velocidad base: { pokeInfo.base_speed }</p>
+
+
+                            <p>{ pokeInfo.stats[ 0 ].name }: { pokeInfo.stats[ 0 ].base_stat }</p>
+                            <p> { pokeInfo.stats[ 1 ].name }: { pokeInfo.stats[ 1 ].base_stat }</p>
+                            <p> { pokeInfo.stats[ 2 ].name }: { pokeInfo.stats[ 2 ].base_stat }</p>
+                            <p> { pokeInfo.stats[ 5 ].name }: { pokeInfo.stats[ 5 ].base_stat }</p>
+
                         </div>
+
                         <div className={ style.types }>
                             <p>Tipos:</p>
-                            { pokeInfo.type.map((type) => <p>{ type.name.charAt(0).toUpperCase() + type.name.slice(1) }</p>) }
+                            { pokeInfo.types.map((type) => <p>{ type.name.charAt(0).toUpperCase() + type.name.slice(1) }</p>) }
                         </div>
                     </div>
                 </div>

@@ -1,13 +1,13 @@
 const { Pokemon, Type } = require("../../db");
-const { getAllPokemons, onePokemonFetch, onePokemonEvol, createEvolutionsArray} = require("../../utils/pokemonStructure");
+const { getAllPokemons, onePokemonFetch, onePokemonEvol} = require("../../utils/pokemonStructure");
 
 
 
 const getAllPokemonsApi = async (req, res) => {
 
     try {
-        // const pokemons = await getAllPokemons();
-        const pokemons = await createEvolutionsArray();
+        const pokemons = await getAllPokemons();
+        // const pokemons = await createEvolutionsArray();
         return res.status(200).json(pokemons);
 
     } catch (error) {

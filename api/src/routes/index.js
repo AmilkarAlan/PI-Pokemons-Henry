@@ -8,8 +8,9 @@ const typesRoutes = require("./typesRoutes.js");
 const router = Router();
 
 
-router.use('/pokemons', pokemonRoutes);
-router.use('/types', typesRoutes);
+router
+    .use('/pokemons', pokemonRoutes)
+    .use('/types', typesRoutes)
 
 
 module.exports = router;

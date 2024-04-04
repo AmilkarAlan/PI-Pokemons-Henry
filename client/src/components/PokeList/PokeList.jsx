@@ -51,18 +51,18 @@ const PokeList = ({ pokemons, pokeSelection, onSelect, seleccionada }) => {
           { createPoke ? <PokeForm /> : (
             <ul className={ style.list }>
               { currentPokemons.map((poke, i) => {
-                let name = poke.name.charAt(0).toUpperCase() + poke.name.slice(1);
+                let specie = poke.specie.charAt(0).toUpperCase() + poke.specie.slice(1);
                 return (
 
                   <PokeCard
                     key={ i }
                     id={ poke.id }
-                    name={ name }
+                    specie={ specie }
                     image={ poke.image }
-                    animatedImg={ poke.imageAnimated }
+                    animatedImg={ poke.gifImage }
                     select={ pokeSelection }
                     seleccionada={ poke.id === seleccionada }
-                    onSelect={ () => onSelect(poke.id, poke.name, poke.imageAnimated) } />
+                    onSelect={ () => onSelect(poke.id, poke.specie, poke.gifImage) } />
 
 
 
