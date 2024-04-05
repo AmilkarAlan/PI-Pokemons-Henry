@@ -5,7 +5,7 @@ const pokemons = Router();
 
 pokemons
     .get('/', getAllPokemons)
-    .get('/search/', getOnePokemon)
+    .get('/search', getOnePokemon)
     .get('/search/:id', getOnePokemon)
     .post('/', postPokemon)
 module.exports = pokemons;

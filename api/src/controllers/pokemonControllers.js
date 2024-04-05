@@ -9,7 +9,7 @@ const getAllPokemons = async (req, res) => {
         // Llamada al servicio 
         const pokemons = await getAllService(offset, limit);
         // respuesta de la api
-        return res.status(200).send({ status: "Ok", results: pokemons });
+        return res.status(pokemons.status).send({ status: pokemons.status || "Ok", results: pokemons.results });
 
     } catch (error) {
         return res.status(error.response.status).send({ status: error.response.status, results: error.message });
@@ -21,11 +21,13 @@ const getOnePokemon = async (req, res) => {
     const { name } = req.query
     try {
         // Llamada al servicio
-        const pokemon = await getOneService(id || name);
-        return res.status(200).send({ status: pokemon.status || "Ok", results: pokemon });
+        const pokemon = await getOneService({id, name});
+        return res.status(pokemon.status).send({ status: pokemon.status || "Ok", results: pokemon.results });
 
     } catch (error) {
         return res.status(error.response.status).send({ status: error.response.status, results: error.message });
+        
+        
     }
 }
 
@@ -33,7 +35,7 @@ const postPokemon = async (req, res) => {
     const pokemon = req.body;
     try {
         const newPokemon = await postService(pokemon);
-        return res.status(200).send({ status: newPokemon.status || "Ok", message: newPokemon.message, results: newPokemon.results });
+        return res.status(newPokemon.status).send({ status: newPokemon.status || "Ok", message: newPokemon.message, results: newPokemon.results });
     } catch (error) {
         console.error(error);
     }

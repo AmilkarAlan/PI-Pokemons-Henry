@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: true,
     },
-    image:{
+    symbol:{
       type: DataTypes.TEXT,
       allowNull:true,
     },
