@@ -5,11 +5,11 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('pokemon', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true,
     },
-    name: {
+    specie: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -21,21 +21,9 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT,
       allowNull: true,
     },
-    base_hp: {
-      type: DataTypes.INTEGER,
+    stats: {
+      type: DataTypes.JSONB,
       allowNull: false
-    },
-    base_attack: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    base_defense: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    base_speed: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
     },
     height: {
       type: DataTypes.INTEGER,
@@ -45,6 +33,10 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    evolutions: {
+      type: DataTypes.JSONB,
+      allowNull: true,
+    }
 
   }, { timestamps: false });
 };

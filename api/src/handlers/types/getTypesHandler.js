@@ -1,4 +1,4 @@
-const {getApiTypes} = require("../../utils/apiFetch");
+// const {getApiTypes} = require("../../utils/apiFetch");
 const typesToDb = require("../../utils/typesToDb");
 
 const getTypes = async (req, res) =>{

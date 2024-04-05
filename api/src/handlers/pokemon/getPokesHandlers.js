@@ -1,5 +1,5 @@
 const { Pokemon, Type } = require("../../db");
-const { getAllPokemons, onePokemonFetch, onePokemonEvol} = require("../../utils/pokemonStructure");
+// const { getAllPokemons, onePokemonFetch, onePokemonEvol} = require("../../utils/pokemonStructure");
 
 
 
